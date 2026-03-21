@@ -12,7 +12,7 @@ def run():
     # LOAD DATA & MODEL
     # -----------------------------
 
-    df = pd.read_csv("data/Bank_Churn.csv")
+    df = pd.read_csv("data/bank_churn.csv")
     model = joblib.load("model/churn_model.pkl")
 
     columns_to_drop = ["RowNumber", "CustomerId", "Surname"]
