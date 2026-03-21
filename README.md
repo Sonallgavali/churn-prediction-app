@@ -1,92 +1,170 @@
-Bank Churn Prediction 🚀
-🧠 Project Overview
+🏦 Bank Customer Churn Prediction (End-to-End ML Project)
 
-This project predicts whether a bank customer is likely to churn (leave the bank) using a Random Forest Classifier.
+📌 Project Summary
 
-Before selecting the final model, several algorithms were compared:
+Customer churn is a critical problem in the banking sector, as losing customers directly affects revenue and growth.
 
-Logistic Regression
-Support Vector Machine (SVM)
-Random Forest Classifier
-K-Nearest Neighbors (KNN)
+In this project, I built a complete end-to-end Machine Learning pipeline to predict whether a customer is likely to leave the bank. The project focuses not just on model building, but also on business understanding, model comparison, and actionable insights.
 
-Random Forest was chosen for its highest accuracy, stability, and ability to handle feature interactions.
+---
 
-The model is trained on the full dataset and includes a preprocessing pipeline to handle numeric scaling and categorical encoding, ensuring accurate predictions for new customers.
+🎯 Business Objective
 
-The goal is to help banks identify at-risk customers and make data-driven decisions to improve retention.
+- Identify customers who are likely to churn
+- Help the bank take proactive retention actions
+- Minimize revenue loss by targeting high-risk customers
 
-⚙️ Tools & Technologies
-Python 3.x
-Jupyter Notebook
-Libraries: pandas, scikit-learn, joblib
-Machine Learning: Random Forest Classifier
-Preprocessing: StandardScaler, OneHotEncoder, ColumnTransformer, Pipeline
-🗂 Dataset
+---
 
-The dataset contains customer details such as:
+📂 Dataset Overview
 
-Credit Score
-Age
-Tenure
-Balance
-Number of Products
-Credit Card status
-Active Member status
-Estimated Salary
-Geography
-Gender
+The dataset contains customer-level information such as demographics, account details, and activity status.
 
-Target variable: Exited (1 = churned, 0 = stayed)
+🔑 Key Features:
 
-🚀 How It Works
-1️⃣ Model Comparison
-Multiple models were trained and evaluated: Logistic Regression, SVM, Random Forest, and KNN.
-Random Forest was selected as the final model due to its superior performance.
-2️⃣ Preprocessing
-Numeric columns are scaled using StandardScaler.
-Categorical columns are encoded using OneHotEncoder.
-3️⃣ Final Model Training
-Random Forest is trained on the full dataset within a pipeline, combining preprocessing and model training in a single step.
-4️⃣ Prediction
-The saved pipeline (churn_model_pipeline.pkl) can predict churn for any new customer, ensuring feature order and preprocessing are consistent.
-📦 Project Structure
-bank-churn-prediction/
-│
-├─ bank_churn_data.csv          # Original dataset
-├─ churn_model_pipeline.pkl     # Saved Random Forest pipeline
-├─ Churn_Prediction.ipynb       # Notebook with model comparison, training & pipeline
-└─ README.md                    # Project documentation
-💡 Example Usage
-import pandas as pd
-import joblib
+- Credit Score
+- Geography
+- Gender
+- Age
+- Tenure
+- Balance
+- Number of Products
+- Active Member Status
+- Estimated Salary
 
-# Load trained pipeline
-pipeline = joblib.load("churn_model_pipeline.pkl")
+🎯 Target Variable:
 
-# Example new customer data
-new_customer = pd.DataFrame([{
-    "CreditScore": 600,
-    "Age": 40,
-    "Tenure": 3,
-    "Balance": 50000,
-    "NumOfProducts": 2,
-    "HasCrCard": 1,
-    "IsActiveMember": 1,
-    "EstimatedSalary": 50000,
-    "Geography": "France",
-    "Gender": "Male"
-}])
+- "Exited" → 1 (Churn), 0 (No Churn)
 
-# Predict churn
-prediction = pipeline.predict(new_customer)
-print("Churn Prediction:", prediction[0])
-📌 Key Highlights
-Comprehensive model comparison: Logistic Regression, SVM, KNN, and Random Forest.
-End-to-end preprocessing pipeline ensures accurate predictions without manual intervention.
-Trained on full dataset to maximize learning from all available data.
-Deployment-ready, suitable for web apps, dashboards, or Streamlit projects.
-🔗 Future Improvements
-Hyperparameter tuning for even better accuracy.
-Handling class imbalance using SMOTE or weighted classes.
-Integration with a real-time customer dashboard for churn predictions.
+🧹 Data Cleaning:
+
+- Removed irrelevant columns: "CustomerId", "Surname"
+- No major missing values observed
+
+---
+
+⚙️ Approach & Methodology
+
+1️⃣ Data Preprocessing
+
+- Performed train-test split (80-20)
+- Applied One-Hot Encoding for categorical variables ("Geography", "Gender")
+- Applied Feature Scaling (for KNN, SVM, Logistic Regression)
+- Checked for class imbalance in churn data
+
+---
+
+2️⃣ Model Building
+
+I implemented and compared multiple machine learning models:
+
+- Logistic Regression (Baseline)
+- Decision Tree Classifier
+- K-Nearest Neighbors (KNN)
+- Support Vector Machine (SVM)
+- Random Forest Classifier ✅
+
+---
+
+3️⃣ Model Evaluation
+
+Since churn prediction is an imbalanced classification problem, I used multiple evaluation metrics:
+
+- Accuracy Score
+- Confusion Matrix
+- Precision
+- Recall (Primary Focus)
+- F1-Score
+- ROC-AUC Score
+
+📌 Why Recall?
+Because missing a churn customer means potential business loss.
+
+---
+
+🏆 Final Model Selection
+
+After comparing all models,
+👉 Random Forest Classifier was selected as the final model
+
+🔍 Why Random Forest?
+
+- Captures non-linear relationships effectively
+- Reduces overfitting compared to Decision Trees
+- Works well with mixed feature types
+- Provided the best balance of Recall and Accuracy
+
+---
+
+📊 Results & Performance
+
+- Achieved strong overall performance (~80–85% accuracy)
+- Improved detection of churn customers compared to baseline
+- Random Forest outperformed other models in Recall and ROC-AUC
+
+---
+
+📈 Key Insights (Business Value)
+
+- 🔴 Customers who are not active members are more likely to churn
+- 🔴 Customers with fewer products tend to leave the bank
+- 🔴 Older customers show higher churn probability
+- 🔴 Certain geographies have higher churn rates
+- 🔴 Low engagement is a strong indicator of churn
+
+📌 These insights can help the bank:
+
+- Design targeted retention campaigns
+- Improve customer engagement strategies
+- Reduce churn and increase profitability
+
+---
+
+🛠️ Tech Stack
+
+- Python 🐍
+- Pandas, NumPy
+- Scikit-learn
+- Matplotlib, Seaborn
+
+---
+
+🚀 How to Run the Project
+
+1. Clone the repository:
+
+git clone https://github.com/your-username/bank-churn-prediction.git
+
+2. Install dependencies:
+
+pip install -r requirements.txt
+
+3. Run the notebook:
+
+jupyter notebook
+
+---
+
+📌 Project Highlights (For Recruiters)
+
+- End-to-end ML pipeline implementation
+- Strong understanding of model evaluation beyond accuracy
+- Focus on business-driven metrics (Recall)
+- Comparison of multiple ML models
+- Extraction of actionable business insights
+
+---
+
+🔮 Future Improvements
+
+- Hyperparameter tuning (GridSearchCV / RandomizedSearchCV)
+- Handling imbalance using SMOTE
+- Integration with Power BI dashboard for business reporting
+
+---
+
+📧 Contact
+
+Feel free to connect for discussion or collaboration!
+
+---
