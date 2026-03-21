@@ -3,14 +3,14 @@ Bank Churn Prediction 🚀
 
 This project predicts whether a bank customer is likely to churn (leave the bank) using a Random Forest Classifier.
 
-Before finalizing the model, several algorithms were compared:
+Before selecting the final model, several algorithms were compared:
 
 Logistic Regression
 Support Vector Machine (SVM)
 Random Forest Classifier
 K-Nearest Neighbors (KNN)
 
-Random Forest was selected due to its highest accuracy, stability, and ability to handle feature interactions.
+Random Forest was chosen for its highest accuracy, stability, and ability to handle feature interactions.
 
 The model is trained on the full dataset and includes a preprocessing pipeline to handle numeric scaling and categorical encoding, ensuring accurate predictions for new customers.
 
@@ -24,7 +24,7 @@ Machine Learning: Random Forest Classifier
 Preprocessing: StandardScaler, OneHotEncoder, ColumnTransformer, Pipeline
 🗂 Dataset
 
-The dataset contains customer information such as:
+The dataset contains customer details such as:
 
 Credit Score
 Age
@@ -42,7 +42,7 @@ Target variable: Exited (1 = churned, 0 = stayed)
 🚀 How It Works
 1️⃣ Model Comparison
 Multiple models were trained and evaluated: Logistic Regression, SVM, Random Forest, and KNN.
-Random Forest was selected as the final model due to its superior performance on evaluation metrics.
+Random Forest was selected as the final model due to its superior performance.
 2️⃣ Preprocessing
 Numeric columns are scaled using StandardScaler.
 Categorical columns are encoded using OneHotEncoder.
@@ -82,11 +82,11 @@ new_customer = pd.DataFrame([{
 prediction = pipeline.predict(new_customer)
 print("Churn Prediction:", prediction[0])
 📌 Key Highlights
-Comprehensive model comparison with Logistic Regression, SVM, KNN, and Random Forest.
+Comprehensive model comparison: Logistic Regression, SVM, KNN, and Random Forest.
 End-to-end preprocessing pipeline ensures accurate predictions without manual intervention.
 Trained on full dataset to maximize learning from all available data.
 Deployment-ready, suitable for web apps, dashboards, or Streamlit projects.
 🔗 Future Improvements
-Hyperparameter tuning for better accuracy.
+Hyperparameter tuning for even better accuracy.
 Handling class imbalance using SMOTE or weighted classes.
-Integration with a real-time customer dashboard for predictions.
+Integration with a real-time customer dashboard for churn predictions.
