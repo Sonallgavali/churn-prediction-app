@@ -133,7 +133,7 @@ After comparing all models,
 
 1. Clone the repository:
 
-git clone https://github.com/your-username/bank-churn-prediction.git
+git clone https://github.com/Sonallgavali/churn-prediction-app
 
 2. Install dependencies:
 
